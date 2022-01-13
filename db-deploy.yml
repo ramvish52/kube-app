@@ -17,6 +17,11 @@ spec:
       containers:
         - name: vprodb
           image: ramvish52/vprofiledb:V1
+          args:
+            - "--ignore-db-dir=lost+found"
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: vpro-db-data
           ports:
             - name: vprodb-port
               containerPort: 3306
@@ -27,6 +32,10 @@ spec:
                   name: app-secret
                   key: db-pass
       nodeSelector:
-        zone: us-east-2a
+        zone: ap-south-1a
+      volumes: 
+        - name: vpro-db-data
+          hostPath:
+            path: /dbdata
       
 

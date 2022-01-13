@@ -5,10 +5,10 @@ metadata:
   labels:
     app: vproapp
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: vproapp
-  replicas: 1
   template:
     metadata:
       labels:
@@ -20,14 +20,14 @@ spec:
           ports:
             - name: vproapp-port
               containerPort: 8080
-                #     initContainers:
-                # - name: init-mydb
-                #          image: busybox
-                #           # command: ['sh', '-C', 'until nslookup vprodb; do echo waiting for mydb; sleep2; done;']
-                # initContainers:
-                # - name: init-mymc
-                #          image: busybox
-                # command: ['sh', '-C', 'until nslookup vprocache01; do echo waiting for mydb; sleep2; done;']
+              #initContainers:
+              # - name: init-mydb
+              # image: busybox
+              #command: ['sh', '-C', 'until nslookup vprodb; do echo waiting for mydb; sleep2; done;']
+              #containers:
+              #- name: init-mymc
+              #image: busybox
+              #command: ['sh', '-C', 'until nslookup vprocache01; do echo waiting for mydb; sleep2; done;']
           
       
 

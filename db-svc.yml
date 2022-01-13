@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: vprodb
 spec:
-  prots:
+  ports:
     - port: 3306
-      target: vprodb-port
+      targetPort: vprodb-port
       protocol: TCP
   selector:
     app: vprodb
